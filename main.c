@@ -205,6 +205,9 @@ int main() {
     multiply_matrices_single_thread(A, B, C, m, n, p);
     gettimeofday(&end, NULL);
 
+    printf("\n Matrix C:\n");  //print result matrix
+    print_matrix(C, m, p);
+
     printf("\n\nSingle-threaded multiplication took %f seconds.\n", timeval_diff(&start, &end));
 
     // multiply matrices using multiple threads with row-wise division
@@ -265,9 +268,6 @@ int main() {
     }
     gettimeofday(&end, NULL);
     printf("Block-wise threaded multiplication took %f seconds.\n", timeval_diff(&start, &end));
-
-    printf("\n Matrix C:\n");  //print result matrix
-    print_matrix(C, m, p);
 
     return 0;
 }
